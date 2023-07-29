@@ -6,18 +6,19 @@ import {
   formatCheckboxLabel,
 } from "../../utils/Payment.utils";
 import DonationCheckbox from "./components/DonationCheckbox/DonationCheckbox";
-import { CountryPayments } from "../../models/CountryPayment.model";
+import {
+  PaymentStrategy,
+  PaymentStrategyAU,
+} from "../../interfaces/PaymentStrategy";
 
 type PaymentProps = {
   amount: number;
-  strategy?: CountryPayments;
+  strategy?: PaymentStrategy;
 };
 
 export default function Payment({
   amount,
-  strategy = new CountryPayments("$", (amount: number): number =>
-    Math.floor(amount + 1)
-  ),
+  strategy = new PaymentStrategyAU(),
 }: PaymentProps) {
   const { paymentMethods } = usePaymentMethods();
 

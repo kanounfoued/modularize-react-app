@@ -1,5 +1,3 @@
-// import { PaymentStrategy } from "../interfaces/PaymentStrategy";
-
 export class CountryPayments {
   private readonly _currencySign: string;
   private readonly algorithm: Function;

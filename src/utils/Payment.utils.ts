@@ -1,15 +1,15 @@
-import { CountryPayments } from "../models/CountryPayment.model";
+import { PaymentStrategy } from "../interfaces/PaymentStrategy";
 
 export const formatCheckboxLabel = (
   agreeToDonate: boolean,
   tip: number,
-  strategy: CountryPayments
+  strategy: PaymentStrategy
 ) => {
   return agreeToDonate
     ? "Thanks for your donation."
-    : `I would like to donate ${strategy.currencySign}${tip} to charity.`;
+    : `I would like to donate ${strategy.getCurrencySign()}${tip} to charity.`;
 };
 
-export const formatButtonLabel = (strategy: CountryPayments, total: number) => {
-  return `${strategy.currencySign}${total}`;
+export const formatButtonLabel = (strategy: PaymentStrategy, total: number) => {
+  return `${strategy.getCurrencySign()}${total}`;
 };

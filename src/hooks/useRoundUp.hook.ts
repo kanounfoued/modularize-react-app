@@ -12,6 +12,8 @@ export default function useRoundUp(amount: number, strategy: PaymentStrategy) {
     [amount, agreeToDonate, strategy]
   );
 
+  console.log(total, tip);
+
   const updateAgreeToDonate = () => {
     setAgreeToDonate((agreeToDonate: boolean) => !agreeToDonate);
   };
